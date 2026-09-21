@@ -4,567 +4,924 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Para Rosalinda 🌻💛</title>
+    <meta name="theme-color" content="#fff4d2">
+
+    <title>Para mi amor, Rosalinda ❤️🌻</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
-          rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<audio id="musica" loop>
-    <source src="musica/cancion.mp3" type="audio/mpeg">
-</audio>
+    <!-- =========================================
+         MÚSICA
+    ========================================== -->
 
-<button id="btnMusica" class="btn-musica" onclick="controlMusica()">
-    🎵
-    <span>Música</span>
-</button>
+    <audio id="musica" loop>
+        <source src="musica/cancion.mp3" type="audio/mpeg">
+    </audio>
 
-<div id="animaciones"></div>
-
-
-<!-- =====================================================
-     PORTADA
-===================================================== -->
-
-<section class="portada" id="portada">
-
-    <div class="luz luz1"></div>
-    <div class="luz luz2"></div>
-
-    <div class="portada-contenido">
-
-        <div class="flor-portada">🌻</div>
-
-        <p class="sobre-texto">
-            HAY ALGO ESPECIAL PARA TI
-        </p>
-
-        <h1>Rosalinda</h1>
-
-        <div class="linea"></div>
-
-        <p class="texto-portada">
-            No es solamente una página...
-            <br>
-            es un pequeño detalle hecho pensando en ti.
-        </p>
-
-        <div class="regalo" onclick="abrirRegalo()">
-
-            <div class="tapa">
-                <div class="lazo">💛</div>
-            </div>
-
-            <div class="caja">
-                <span>🌻</span>
-            </div>
-
-        </div>
-
-        <p class="toca">
-            Toca el regalo para comenzar
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     BIENVENIDA
-===================================================== -->
-
-<section class="seccion bienvenida" id="bienvenida">
-
-    <div class="contenido">
-
-        <p class="mini-titulo">
-            21 DE SEPTIEMBRE
-        </p>
-
-        <h2>
-            Feliz Día del Amor
-            <br>
-            <span>y la Amistad</span>
-        </h2>
-
-        <div class="separador">
-            <span></span>
-            🌻
-            <span></span>
-        </div>
-
-        <p class="texto">
-            Hoy quería regalarte algo diferente.
-            No solamente flores, no solamente palabras...
-        </p>
-
-        <p class="texto">
-            sino un pequeño rincón hecho especialmente
-            para recordarte lo especial que puedes llegar
-            a ser para alguien.
-        </p>
-
-        <h3>
-            Y este rincón es para ti, Rosalinda 💛
-        </h3>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     FOTO
-===================================================== -->
-
-<section class="seccion seccion-foto">
-
-    <p class="mini-titulo">
-        ENTRE TANTAS PERSONAS...
-    </p>
-
-    <h2>
-        Hay alguien que
-        <span>destaca diferente</span>
-    </h2>
-
-    <div class="foto-area">
-
-        <div class="flor-decorativa f1">🌻</div>
-        <div class="flor-decorativa f2">🌼</div>
-        <div class="flor-decorativa f3">🌻</div>
-        <div class="flor-decorativa f4">🌼</div>
-        <div class="flor-decorativa f5">🌻</div>
-
-        <div class="marco-foto">
-
-            <div class="foto-interior">
-                <img
-                    src="imagenes/rosalinda.png"
-                    alt="Rosalinda"
-                    onerror="this.style.display='none'; document.getElementById('sinFoto').style.display='flex';"
-                >
-
-                <div id="sinFoto" class="sin-foto">
-                    <span>🌻</span>
-                    <p>Coloca aquí<br>la foto de Rosalinda</p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <p class="frase-foto">
-        “Hay personas que sin proponérselo
-        hacen que algunos momentos tengan
-        un poquito más de luz.”
-    </p>
-
-    <p class="nombre-firma">
-        Rosalinda 🌻
-    </p>
-
-</section>
-
-
-<!-- =====================================================
-     FLORES AMARILLAS
-===================================================== -->
-
-<section class="seccion jardin">
-
-    <p class="mini-titulo">
-        UN JARDÍN PARA TI
-    </p>
-
-    <h2>
-        Tus flores
-        <span>amarillas</span>
-    </h2>
-
-    <p class="texto">
-        Porque hoy no podía faltar algo amarillo,
-        alegre y bonito.
-    </p>
-
-    <div class="jardin-flores">
-
-        <span>🌻</span>
-        <span>🌼</span>
-        <span>🌻</span>
-        <span>🌼</span>
-        <span>🌻</span>
-        <span>🌼</span>
-        <span>🌻</span>
-
-    </div>
-
-    <button class="boton" onclick="lluviaFlores()">
-        🌻 Quiero regalarte más flores
+    <button
+        id="btnMusica"
+        class="btn-musica"
+        onclick="controlMusica()"
+        aria-label="Controlar música"
+    >
+        🎵 <span>Música</span>
     </button>
 
-</section>
 
+    <!-- =========================================
+         PORTADA
+    ========================================== -->
 
-<!-- =====================================================
-     MENSAJES
-===================================================== -->
+    <section class="portada" id="portada">
 
-<section class="seccion mensajes">
+        <div class="luz luz1"></div>
+        <div class="luz luz2"></div>
+        <div class="luz luz3"></div>
 
-    <div class="tarjeta">
+        <div class="portada-contenido">
 
-        <div class="corazon-latiendo">
-            💛
-        </div>
-
-        <p class="mini-titulo">
-            UNA PEQUEÑA PREGUNTA
-        </p>
-
-        <h2>
-            ¿Sabes por qué
-            <span>eres especial?</span>
-        </h2>
-
-        <div id="mensajeCambiante" class="mensaje-cambiante">
-            Presiona el botón...
-            tengo algunas cosas que decirte 🌻
-        </div>
-
-        <button class="boton" onclick="nuevoMensaje()">
-            Descubrir una razón 💕
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     3 TARJETAS
-===================================================== -->
-
-<section class="seccion detalles">
-
-    <p class="mini-titulo">
-        ALGUNAS PEQUEÑAS COSAS
-    </p>
-
-    <h2>
-        Que nunca deberías
-        <span>olvidar</span>
-    </h2>
-
-    <div class="tarjetas">
-
-        <div class="detalle-card">
-
-            <div class="icono">
+            <div class="flor-portada">
                 🌻
             </div>
 
-            <h3>
-                Tu sonrisa
-            </h3>
+            <p class="sobre-texto">
+                PARA EL AMOR DE MI VIDA
+            </p>
 
-            <p>
-                Una sonrisa sincera puede cambiar
-                completamente un momento.
-                Nunca dejes de regalar la tuya.
+            <h1>
+                Rosalinda
+                <span class="corazon-titulo">❤️</span>
+            </h1>
+
+            <div class="linea"></div>
+
+            <p class="texto-portada">
+                Mi amor, hoy quería regalarte algo diferente...
+                <br>
+                algo pequeño comparado con todo lo que significas para mí,
+                pero hecho con muchísimo amor pensando solamente en ti.
+            </p>
+
+            <div
+                class="regalo"
+                onclick="abrirRegalo()"
+                title="Abrir regalo"
+            >
+
+                <div class="tapa">
+                    <div class="lazo">
+                        💛
+                    </div>
+                </div>
+
+                <div class="caja">
+                    <span>🌻</span>
+                </div>
+
+            </div>
+
+            <p class="toca">
+                Toca el regalo, mi amor ❤️
+            </p>
+
+            <p class="mini-indicacion">
+                Preparé algo especial para ti...
             </p>
 
         </div>
 
+    </section>
 
-        <div class="detalle-card">
 
-            <div class="icono">
+    <!-- =========================================
+         BIENVENIDA
+    ========================================== -->
+
+    <section class="seccion bienvenida" id="bienvenida">
+
+        <div class="contenido aparecer-scroll">
+
+            <p class="mini-titulo">
+                PARA MI PERSONA FAVORITA ❤️
+            </p>
+
+            <h2>
+                Feliz Día del Amor
+                <br>
+                <span>mi Rosalinda</span>
+            </h2>
+
+            <div class="separador">
+                <span></span>
+                🌻
+                <span></span>
+            </div>
+
+            <p class="texto">
+                Hoy no quería regalarte solamente flores
+                o decirte un simple “feliz día”.
+                Quería hacer algo diferente,
+                algo que pudiera recordarte cuánto te amo
+                y lo importante que eres para mí.
+            </p>
+
+            <p class="texto">
+                Han pasado tantos momentos desde que comenzamos
+                esta historia juntos. Hemos reído, aprendido,
+                vivido días hermosos y también superado
+                momentos difíciles.
+            </p>
+
+            <p class="texto">
+                Y después de todo este tiempo,
+                sigo agradeciendo poder caminar por la vida
+                a tu lado.
+            </p>
+
+            <h3 class="frase-especial">
+                Gracias por todos estos años juntos,
+                mi amor ❤️
+            </h3>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FOTO DE ROSALINDA
+    ========================================== -->
+
+    <section class="seccion seccion-foto">
+
+        <div class="aparecer-scroll">
+
+            <p class="mini-titulo">
+                ENTRE MILLONES DE PERSONAS...
+            </p>
+
+            <h2>
+                Mi corazón te
+                <span>eligió a ti ❤️</span>
+            </h2>
+
+        </div>
+
+        <div class="foto-area aparecer-scroll">
+
+            <div class="flor-decorativa f1">🌻</div>
+            <div class="flor-decorativa f2">🌼</div>
+            <div class="flor-decorativa f3">🌻</div>
+            <div class="flor-decorativa f4">🌼</div>
+            <div class="flor-decorativa f5">🌻</div>
+
+            <div class="marco-foto">
+
+                <div class="foto-interior">
+
+                    <img
+                        src="imagenes/rosalinda.png"
+                        alt="Mi amor Rosalinda"
+                        onerror="
+                            this.style.display='none';
+                            document.getElementById('sinFoto').style.display='flex';
+                        "
+                    >
+
+                    <div id="sinFoto" class="sin-foto">
+                        <span>🌻</span>
+                        <p>
+                            Mi Rosalinda
+                            <br>
+                            ❤️
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="frase-foto aparecer-scroll">
+            “Si pudiera volver atrás y comenzar nuestra historia
+            nuevamente, volvería a elegirte a ti.
+            Una y otra vez.”
+        </p>
+
+        <p class="nombre-firma aparecer-scroll">
+            Mi Rosalinda ❤️
+        </p>
+
+    </section>
+
+
+    <!-- =========================================
+         NUESTRA HISTORIA
+    ========================================== -->
+
+    <section class="seccion historia">
+
+        <div class="contenido aparecer-scroll">
+
+            <p class="mini-titulo">
+                NUESTRA HISTORIA
+            </p>
+
+            <h2>
+                Gracias por cada
+                <span>momento juntos</span>
+            </h2>
+
+            <div class="historia-corazon">
+                ❤️
+            </div>
+
+            <p class="texto">
+                A veces pienso en todo lo que hemos vivido
+                durante estos años y me doy cuenta de que
+                nuestra historia está formada por miles
+                de pequeños momentos.
+            </p>
+
+            <p class="texto">
+                Conversaciones, sonrisas, fotografías,
+                salidas, abrazos, momentos inesperados,
+                días increíbles y también experiencias
+                que nos ayudaron a crecer.
+            </p>
+
+            <p class="texto">
+                Quizá no todos los días fueron perfectos,
+                pero cada uno de ellos forma parte
+                de nuestra historia.
+            </p>
+
+            <div class="historia-destacado">
+                <span>“</span>
+                Gracias por permanecer a mi lado
+                y por permitirme compartir contigo
+                todos estos años.
+                <span>”</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FLORES AMARILLAS
+    ========================================== -->
+
+    <section class="seccion jardin">
+
+        <div class="aparecer-scroll">
+
+            <p class="mini-titulo">
+                FLORES PARA MI AMOR
+            </p>
+
+            <h2>
+                Todas estas flores son
+                <span>para ti 🌻</span>
+            </h2>
+
+            <p class="texto">
+                Si pudiera regalarte una flor por cada momento
+                bonito que hemos vivido juntos,
+                probablemente necesitaría un jardín entero.
+            </p>
+
+            <p class="texto">
+                Y aun así no serían suficientes para agradecerte
+                todos estos años, todas las sonrisas,
+                todos los recuerdos y todo el amor
+                que hemos compartido.
+            </p>
+
+        </div>
+
+        <div class="jardin-flores aparecer-scroll">
+
+            <span>🌻</span>
+            <span>🌼</span>
+            <span>🌻</span>
+            <span>🌼</span>
+            <span>🌻</span>
+            <span>🌼</span>
+            <span>🌻</span>
+
+        </div>
+
+        <button
+            class="boton aparecer-scroll"
+            onclick="lluviaFlores()"
+        >
+            🌻 Más flores para mi amor ❤️
+        </button>
+
+    </section>
+
+
+    <!-- =========================================
+         RAZONES POR LAS QUE LA AMAS
+    ========================================== -->
+
+    <section class="seccion mensajes">
+
+        <div class="tarjeta aparecer-scroll">
+
+            <div class="corazon-latiendo">
+                ❤️
+            </div>
+
+            <p class="mini-titulo">
+                PODRÍA DARTE MUCHAS RAZONES
+            </p>
+
+            <h2>
+                ¿Sabes por qué
+                <span>te amo?</span>
+            </h2>
+
+            <div
+                id="mensajeCambiante"
+                class="mensaje-cambiante"
+            >
+                Presiona el botón, mi amor...
+                todavía tengo muchas cosas bonitas que decirte ❤️
+            </div>
+
+            <button
+                class="boton"
+                onclick="nuevoMensaje()"
+            >
+                ❤️ Descubre otra razón
+            </button>
+
+            <p class="contador-mensajes" id="contadorMensajes">
+                Hay muchas razones...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         TRES COSAS
+    ========================================== -->
+
+    <section class="seccion detalles">
+
+        <p class="mini-titulo aparecer-scroll">
+            ALGUNAS COSAS QUE AMO DE TI
+        </p>
+
+        <h2 class="aparecer-scroll">
+            Cosas que nunca deberías
+            <span>olvidar</span>
+        </h2>
+
+        <div class="tarjetas">
+
+            <div class="detalle-card aparecer-scroll">
+
+                <div class="icono">
+                    🌻
+                </div>
+
+                <h3>
+                    Tu sonrisa
+                </h3>
+
+                <p>
+                    Amo verte sonreír.
+                    Después de todos estos años,
+                    sigue siendo una de esas pequeñas cosas
+                    capaces de alegrar completamente mi día.
+                </p>
+
+            </div>
+
+
+            <div class="detalle-card aparecer-scroll">
+
+                <div class="icono">
+                    ✨
+                </div>
+
+                <h3>
+                    Tu forma de ser
+                </h3>
+
+                <p>
+                    Amo esa manera tan tuya de ser.
+                    Tus detalles, tus ocurrencias,
+                    tu personalidad y todas esas pequeñas
+                    cosas que hacen que seas tú.
+                </p>
+
+            </div>
+
+
+            <div class="detalle-card aparecer-scroll">
+
+                <div class="icono">
+                    ❤️
+                </div>
+
+                <h3>
+                    Nuestra historia
+                </h3>
+
+                <p>
+                    Amo mirar hacia atrás y descubrir
+                    todos los recuerdos que hemos construido,
+                    pero amo todavía más imaginar
+                    todo lo que nos falta vivir.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FUTURO
+    ========================================== -->
+
+    <section class="seccion futuro">
+
+        <div class="contenido aparecer-scroll">
+
+            <div class="icono-futuro">
                 ✨
             </div>
 
-            <h3>
-                Tu esencia
-            </h3>
-
-            <p>
-                Nunca necesitas parecerte a nadie.
-                Tu forma de ser es precisamente
-                lo que te hace diferente.
+            <p class="mini-titulo">
+                LO MÁS BONITO...
             </p>
 
-        </div>
+            <h2>
+                Todavía nos queda
+                <span>mucho por vivir</span>
+            </h2>
 
-
-        <div class="detalle-card">
-
-            <div class="icono">
-                💛
-            </div>
-
-            <h3>
-                Tu presencia
-            </h3>
-
-            <p>
-                Existen personas cuya presencia
-                puede convertir un momento sencillo
-                en un bonito recuerdo.
+            <p class="texto">
+                Me encanta recordar todo lo que hemos vivido,
+                pero hay algo que me emociona todavía más:
+                pensar en todo lo que aún no ha sucedido.
             </p>
 
-        </div>
+            <div class="futuro-items">
 
-    </div>
+                <div>
+                    <span>✈️</span>
+                    <p>
+                        Lugares que todavía
+                        tenemos que conocer.
+                    </p>
+                </div>
 
-</section>
+                <div>
+                    <span>📸</span>
+                    <p>
+                        Fotografías que todavía
+                        tenemos que tomar.
+                    </p>
+                </div>
 
+                <div>
+                    <span>🌟</span>
+                    <p>
+                        Sueños y metas que todavía
+                        tenemos que cumplir.
+                    </p>
+                </div>
 
-<!-- =====================================================
-     CARTA
-===================================================== -->
+                <div>
+                    <span>😂</span>
+                    <p>
+                        Miles de momentos en los que
+                        todavía nos queda reír.
+                    </p>
+                </div>
 
-<section class="seccion carta-seccion">
+                <div>
+                    <span>❤️</span>
+                    <p>
+                        Y muchísimos recuerdos
+                        que todavía no existen.
+                    </p>
+                </div>
 
-    <p class="mini-titulo">
-        TODAVÍA FALTA ALGO
-    </p>
-
-    <h2>
-        Escribí unas palabras
-        <span>para ti</span>
-    </h2>
-
-    <div class="sobre" onclick="abrirCarta()">
-
-        <div class="solapa"></div>
-
-        <div class="papel">
-            Para Rosalinda
-        </div>
-
-        <div class="frente">
-            <div class="sello">
-                💛
             </div>
+
+            <h3 class="frase-especial">
+                Deseo que lo mejor de nuestra historia
+                todavía esté por escribirse. ❤️
+            </h3>
+
         </div>
 
-    </div>
-
-    <p class="toca">
-        Toca el sobre para leer la carta 💌
-    </p>
-
-</section>
+    </section>
 
 
-<!-- =====================================================
-     GRAN FINAL
-===================================================== -->
+    <!-- =========================================
+         CARTA
+    ========================================== -->
 
-<section class="seccion final">
+    <section class="seccion carta-seccion">
 
-    <div id="finalNormal">
+        <div class="aparecer-scroll">
 
-        <p class="mini-titulo">
-            UNA ÚLTIMA SORPRESA
-        </p>
+            <p class="mini-titulo">
+                TODAVÍA FALTA ALGO...
+            </p>
 
-        <h2>
-            Antes de que
-            <span>te vayas...</span>
-        </h2>
+            <h2>
+                Escribí unas palabras
+                <span>para ti, mi amor</span>
+            </h2>
 
-        <p class="texto">
-            Hay una última cosa que preparé para ti.
-        </p>
-
-        <button class="boton boton-final"
-                onclick="granFinal()">
-            💛 Descubrir mi última sorpresa 💛
-        </button>
-
-    </div>
-
-
-    <div id="escenaFinal" class="escena-final">
-
-        <p class="para-ti">
-            PARA TI
-        </p>
-
-        <div id="nombreFinal"
-             class="nombre-final">
         </div>
 
-        <div id="corazonFlores"
-             class="corazon-flores">
+        <div
+            class="sobre aparecer-scroll"
+            onclick="abrirCarta()"
+        >
 
-            <span>🌻</span>
-            <span>🌼</span>
-            <span>🌻</span>
-            <span>🌼</span>
-            <span>🌻</span>
-            <span>🌼</span>
-            <span>🌻</span>
-            <span>🌼</span>
-            <span>🌻</span>
-            <span>🌼</span>
-            <span>🌻</span>
-            <span>🌼</span>
+            <div class="solapa"></div>
 
-            <div class="centro-final">
-                💛
+            <div class="papel">
+                Para mi Rosalinda ❤️
+            </div>
+
+            <div class="frente">
+
+                <div class="sello">
+                    ❤️
+                </div>
+
             </div>
 
         </div>
 
-        <div id="textoFinal"
-             class="texto-final">
+        <p class="toca aparecer-scroll">
+            Toca el sobre para leer mi carta 💌
+        </p>
 
-            <p>
-                Espero que este pequeño detalle
-                te haya regalado al menos una sonrisa.
+    </section>
+
+
+    <!-- =========================================
+         GRAN FINAL
+    ========================================== -->
+
+    <section class="seccion final" id="final">
+
+        <div id="finalNormal">
+
+            <div class="corazon-latiendo grande-corazon">
+                ❤️
+            </div>
+
+            <p class="mini-titulo">
+                UNA ÚLTIMA SORPRESA
             </p>
 
-            <h3>
-                Feliz Día del Amor y la Amistad
-            </h3>
+            <h2>
+                Antes de que
+                <span>te vayas...</span>
+            </h2>
 
-            <p>
-                Que nunca te falten razones para sonreír,
-                personas que te quieran sinceramente
-                y sueños bonitos por cumplir.
+            <p class="texto">
+                Mi amor, hay una última cosa
+                que preparé especialmente para ti.
             </p>
 
-            <div class="firma-final">
-                Para Rosalinda
+            <button
+                class="boton boton-final"
+                onclick="granFinal()"
+            >
+                ❤️ Descubrir mi última sorpresa ❤️
+            </button>
+
+        </div>
+
+
+        <!-- ESCENA FINAL -->
+
+        <div
+            id="escenaFinal"
+            class="escena-final"
+        >
+
+            <p class="para-ti">
+                PARA EL AMOR DE MI VIDA
+            </p>
+
+            <div
+                id="nombreFinal"
+                class="nombre-final"
+            ></div>
+
+
+            <!-- CORAZÓN DE FLORES -->
+
+            <div
+                id="corazonFlores"
+                class="corazon-flores"
+            >
+
+                <span>🌻</span>
+                <span>🌼</span>
+                <span>🌻</span>
+                <span>🌼</span>
+                <span>🌻</span>
+                <span>🌼</span>
+                <span>🌻</span>
+                <span>🌼</span>
+                <span>🌻</span>
+                <span>🌼</span>
+                <span>🌻</span>
+                <span>🌼</span>
+
+                <div class="centro-final">
+                    ❤️
+                </div>
+
+            </div>
+
+
+            <div
+                id="textoFinal"
+                class="texto-final"
+            >
+
+                <p>
+                    Después de todos estos años,
+                    puedo mirar hacia atrás y agradecer
+                    cada momento que nos trajo hasta aquí.
+                </p>
+
+                <h3>
+                    Te amo, Rosalinda ❤️
+                </h3>
+
+                <p>
+                    Gracias por cada recuerdo,
+                    por cada sonrisa, por cada abrazo
+                    y por todo el amor que hemos compartido.
+                </p>
+
+                <p>
+                    Y si nuestra historia hasta ahora
+                    ha sido bonita,
+                    espero que lo que viene
+                    sea todavía mejor.
+                </p>
+
+                <p>
+                    Nos quedan nuevos lugares por conocer,
+                    sueños por cumplir, metas por alcanzar,
+                    muchísimas fotografías por tomar
+                    y una enorme cantidad de recuerdos
+                    que todavía no existen.
+                </p>
+
+                <p class="final-pequeno">
+                    Porque esto no se trata solamente
+                    de todo lo que hemos vivido...
+                </p>
+
+                <h3>
+                    sino de todo lo hermoso
+                    que todavía nos queda por vivir juntos.
+                    ❤️
+                </h3>
+
+                <div class="promesa-final">
+                    <span>🌻</span>
+
+                    <p>
+                        Gracias por todos estos años.
+                        <br>
+                        Pero sobre todo...
+                    </p>
+
+                    <strong>
+                        gracias por todos los que
+                        todavía nos esperan.
+                    </strong>
+
+                    <span>❤️</span>
+                </div>
+
+                <div class="firma-final">
+                    Feliz Día del Amor, mi vida
+                    <br>
+                    <span>
+                        Te amo, Rosalinda 🌻❤️
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <span class="footer-flor">
+            🌻
+        </span>
+
+        <p>
+            HECHO CON TODO MI AMOR PARA
+        </p>
+
+        <h3>
+            Rosalinda ❤️
+        </h3>
+
+        <p class="footer-frase">
+            Por todos nuestros recuerdos
+            y por todos los que aún nos faltan.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================================
+         MODAL CARTA
+    ========================================== -->
+
+    <div
+        id="modalCarta"
+        class="modal"
+    >
+
+        <div class="carta">
+
+            <button
+                class="cerrar"
+                onclick="cerrarCarta()"
+                aria-label="Cerrar carta"
+            >
+                ×
+            </button>
+
+            <div class="flor-carta">
+                🌻
+            </div>
+
+            <p class="mini-titulo">
+                PARA EL AMOR DE MI VIDA
+            </p>
+
+            <h2>
+                Mi querida Rosalinda ❤️
+            </h2>
+
+            <p>
+                Mi amor, hoy quería aprovechar este pequeño
+                detalle para decirte algunas cosas que quizá
+                en el día a día no siempre encuentro
+                el momento de expresar.
+            </p>
+
+            <p>
+                Primero quiero darte las gracias.
+                Gracias por todos estos años a mi lado,
+                por cada sonrisa, cada conversación,
+                cada salida, cada abrazo y cada pequeño
+                momento que poco a poco fue formando
+                nuestra historia.
+            </p>
+
+            <p>
+                Hemos pasado por muchísimas cosas juntos.
+                Hemos tenido momentos hermosos,
+                momentos divertidos, días inolvidables
+                y seguramente también días en los que
+                las cosas no fueron perfectas.
+            </p>
+
+            <p>
+                Pero incluso esos momentos forman parte
+                de todo lo que hemos construido juntos.
+            </p>
+
+            <p>
+                Y cuando miro hacia atrás,
+                me doy cuenta de cuántos recuerdos tenemos.
+                Algunos grandes y otros muy sencillos,
+                pero muchos tienen algo en común:
+                <strong>estabas tú.</strong>
+            </p>
+
+            <p>
+                Gracias por acompañarme,
+                por quererme, por tenerme paciencia,
+                por compartir conmigo una parte tan importante
+                de tu vida y por permitirme compartir
+                la mía contigo.
+            </p>
+
+            <p>
+                Pero hay algo que me emociona todavía más:
+                no solamente pensar en todo lo que ya vivimos,
+                sino pensar en todo lo que todavía
+                nos falta vivir.
+            </p>
+
+            <p>
+                Quiero que todavía tengamos muchísimas
+                historias que contar, lugares que conocer,
+                fotografías que tomar, metas que celebrar,
+                días en los que riamos hasta cansarnos
+                y momentos sencillos que algún día
+                terminemos recordando con una sonrisa.
+            </p>
+
+            <p>
+                No sé exactamente qué aventuras
+                nos esperan, pero deseo de corazón
+                que lo mejor de nuestra historia
+                todavía esté por escribirse.
+            </p>
+
+            <p>
+                Y si todos estos años me han enseñado algo,
+                es que tener a alguien con quien compartir
+                el camino hace que cada etapa
+                tenga un significado diferente.
+            </p>
+
+            <p class="parrafo-amor">
+                <strong>
+                    Gracias por todos estos años,
+                    mi amor.
+                    Gracias por nuestra historia.
+                    Y gracias por todo lo bonito
+                    que todavía construiremos juntos. ❤️
+                </strong>
+            </p>
+
+            <div class="carta-destacado">
+
+                🌻
+
                 <br>
-                <span>con mucho cariño 💛</span>
+
+                Feliz Día del Amor
+
+                <br>
+
+                mi Rosalinda
+
+                <br>
+
+                ❤️
+
+            </div>
+
+            <div class="firma-carta">
+                Con todo mi amor,
+                <br>
+                <strong>
+                    para ti ❤️
+                </strong>
             </div>
 
         </div>
 
     </div>
 
-</section>
 
-
-<footer>
-
-    <span>🌻</span>
-
-    <p>
-        Un pequeño detalle hecho especialmente para
-    </p>
-
-    <h3>
-        Rosalinda
-    </h3>
-
-    <p>
-        💛
-    </p>
-
-</footer>
-
-
-<!-- =====================================================
-     MODAL CARTA
-===================================================== -->
-
-<div id="modalCarta" class="modal">
-
-    <div class="carta">
-
-        <button class="cerrar"
-                onclick="cerrarCarta()">
-            ×
-        </button>
-
-        <div class="flor-carta">
-            🌻
-        </div>
-
-        <p class="mini-titulo">
-            UNAS PALABRAS PARA TI
-        </p>
-
-        <h2>
-            Querida Rosalinda
-        </h2>
-
-        <p>
-            Hoy quería aprovechar este día para
-            regalarte unas palabras que quizá
-            normalmente no se dicen.
-        </p>
-
-        <p>
-            En nuestra vida conocemos a muchísimas
-            personas. Algunas simplemente pasan,
-            mientras que otras consiguen dejar
-            pequeños recuerdos que permanecen.
-        </p>
-
-        <p>
-            Hay personas que con una sonrisa,
-            una conversación o simplemente con
-            estar presentes pueden hacer que
-            un momento normal se vuelva especial.
-        </p>
-
-        <p>
-            Y entre todas esas personas,
-            quiero que sepas que
-            <strong>
-                tú tienes algo muy bonito y especial.
-            </strong>
-        </p>
-
-        <p>
-            Espero que nunca te falten motivos
-            para sonreír, sueños que te emocionen,
-            personas que valoren tu corazón
-            y momentos que quieras guardar
-            para siempre.
-        </p>
-
-        <p>
-            Y cuando veas una flor amarilla,
-            quizá puedas recordar que alguna vez
-            alguien preparó todo un pequeño jardín
-            solamente para hacerte sonreír.
-        </p>
-
-        <div class="carta-destacado">
-            🌻
-            <br>
-            Feliz Día del Amor y la Amistad
-            <br>
-            💛
-        </div>
-
-        <div class="firma-carta">
-            Con mucho cariño,
-            <br>
-            <strong>para Rosalinda</strong>
-        </div>
-
-    </div>
-
-</div>
-
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
