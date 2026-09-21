@@ -1,42 +1,67 @@
+/* =========================================
+   VARIABLES
+========================================= */
+
 let musicaActiva = false;
-let indice = 0;
+let indiceMensaje = 0;
+let finalEjecutado = false;
+
+
+/* =========================================
+   MENSAJES ROMÁNTICOS
+========================================= */
 
 const mensajes = [
 
-    "Porque tienes una sonrisa capaz de hacer más bonito un momento sencillo. 🌻",
+    "Porque después de todos estos años todavía consigues hacerme sonreír como al principio. ❤️",
 
-    "Porque tienes una manera muy tuya de ser... y precisamente eso te hace especial. 💛",
+    "Porque contigo he vivido momentos que guardaré para siempre en mi corazón. 🌻",
 
-    "Porque existen personas que simplemente se conocen, pero otras consiguen dejar bonitos recuerdos. ✨",
+    "Porque no solamente eres mi novia, también eres mi compañera y una persona muy importante en mi vida. 💕",
 
-    "Porque incluso sin darte cuenta puedes ser el motivo de una sonrisa. 😊",
+    "Porque amo tu sonrisa y esa forma tan tuya de hacer especiales hasta los momentos más sencillos. 🥰",
 
-    "Porque tu presencia puede hacer diferente un momento completamente normal. 🌼",
+    "Porque hemos crecido juntos, aprendido juntos y todavía tenemos muchísimo por vivir. ❤️",
 
-    "Porque mereces recibir cosas bonitas sin necesitar una ocasión especial. 💕",
+    "Porque cada recuerdo contigo forma parte de nuestra historia, y amo la historia que estamos construyendo. ✨",
 
-    "Porque nunca necesitas parecerte a alguien más para destacar. 🌻",
+    "Porque incluso después de tanto tiempo sigo encontrando nuevas razones para amarte. 💛",
 
-    "Porque hay personas que llegan haciendo ruido y otras que simplemente llegan... y terminan siendo especiales. 💛",
+    "Porque hemos tenido días fáciles y otros no tanto, pero seguimos aquí, caminando juntos. ❤️",
 
-    "Porque entre tantas personas que uno puede conocer, algunas tienen algo difícil de explicar. ✨",
+    "Porque cuando pienso en muchos de mis mejores recuerdos, inevitablemente apareces tú. 🌻",
 
-    "Y la última razón es la más sencilla: porque eres tú, Rosalinda. 🌻💛"
+    "Porque quiero seguir celebrando contigo muchos cumpleaños, aniversarios, logros, viajes y sueños. 💕",
+
+    "Porque todo lo que hemos vivido hasta ahora solamente es una parte de todo lo bonito que todavía nos espera. ✨",
+
+    "Porque quiero seguir creando contigo esos pequeños momentos que después terminan convirtiéndose en grandes recuerdos. ❤️",
+
+    "Porque entre tantas personas que existen en este mundo, mi corazón tuvo la fortuna de encontrarte a ti. 🌻",
+
+    "Porque no quiero agradecer solamente por lo que ya vivimos, sino también ilusionarme por todo lo que todavía nos espera. 💛",
+
+    "Y porque después de todas las razones posibles, hay una que resume todo: te amo, Rosalinda. ❤️🌻"
 
 ];
 
 
-/* ======================================
-   ABRIR REGALO
-====================================== */
+/* =========================================
+   ABRIR EL REGALO
+========================================= */
 
 function abrirRegalo(){
 
     iniciarMusica();
 
-    explosion(35);
+    explosion(30);
 
-    lluviaFlores();
+    setTimeout(() => {
+
+        lluviaFlores();
+
+    },300);
+
 
     setTimeout(() => {
 
@@ -46,13 +71,14 @@ function abrirRegalo(){
                 behavior:"smooth"
             });
 
-    },900);
+    },850);
+
 }
 
 
-/* ======================================
+/* =========================================
    MÚSICA
-====================================== */
+========================================= */
 
 function iniciarMusica(){
 
@@ -61,22 +87,29 @@ function iniciarMusica(){
 
     musica.volume = 0.45;
 
-    musica.play()
-    .then(() => {
+    const promesa =
+        musica.play();
 
-        musicaActiva = true;
+    if(promesa !== undefined){
 
-        document.getElementById("btnMusica")
-            .innerHTML = "⏸️ <span>Pausar</span>";
+        promesa
+        .then(() => {
 
-    })
-    .catch(() => {
+            musicaActiva = true;
 
-        console.log(
-            "El navegador espera interacción del usuario."
-        );
+            actualizarBotonMusica();
 
-    });
+        })
+        .catch(() => {
+
+            musicaActiva = false;
+
+            actualizarBotonMusica();
+
+        });
+
+    }
+
 }
 
 
@@ -91,26 +124,52 @@ function controlMusica(){
 
         musicaActiva = false;
 
-        document.getElementById("btnMusica")
-            .innerHTML =
-            "🎵 <span>Música</span>";
-
     }else{
 
-        musica.play();
+        musica.play()
+        .then(() => {
 
-        musicaActiva = true;
+            musicaActiva = true;
 
-        document.getElementById("btnMusica")
-            .innerHTML =
-            "⏸️ <span>Pausar</span>";
+            actualizarBotonMusica();
+
+        })
+        .catch(() => {
+
+            musicaActiva = false;
+
+        });
+
     }
+
+    actualizarBotonMusica();
+
 }
 
 
-/* ======================================
-   MENSAJES
-====================================== */
+function actualizarBotonMusica(){
+
+    const boton =
+        document.getElementById("btnMusica");
+
+    if(musicaActiva){
+
+        boton.innerHTML =
+            "⏸️ <span>Pausar</span>";
+
+    }else{
+
+        boton.innerHTML =
+            "🎵 <span>Música</span>";
+
+    }
+
+}
+
+
+/* =========================================
+   MOSTRAR RAZONES
+========================================= */
 
 function nuevoMensaje(){
 
@@ -119,62 +178,105 @@ function nuevoMensaje(){
             "mensajeCambiante"
         );
 
+    const contador =
+        document.getElementById(
+            "contadorMensajes"
+        );
+
     caja.style.opacity = "0";
 
     caja.style.transform =
-        "translateY(10px)";
+        "translateY(12px)";
+
 
     setTimeout(() => {
 
         caja.innerHTML =
-            mensajes[indice];
+            mensajes[indiceMensaje];
 
         caja.style.opacity = "1";
 
         caja.style.transform =
             "translateY(0)";
 
-        indice++;
 
-        if(indice >= mensajes.length){
-            indice = 0;
+        contador.innerHTML =
+            `Razón ${
+                indiceMensaje + 1
+            } de ${
+                mensajes.length
+            } ❤️`;
+
+
+        indiceMensaje++;
+
+
+        if(
+            indiceMensaje >=
+            mensajes.length
+        ){
+
+            indiceMensaje = 0;
+
         }
 
     },300);
 
-    explosion(8);
+
+    explosion(7);
+
 }
 
 
-/* ======================================
-   CARTA
-====================================== */
+/* =========================================
+   ABRIR CARTA
+========================================= */
 
 function abrirCarta(){
 
-    document
-        .getElementById("modalCarta")
-        .classList.add("activo");
+    const modal =
+        document.getElementById(
+            "modalCarta"
+        );
+
+    modal.classList.add(
+        "activo"
+    );
 
     document.body.classList.add(
         "bloqueado"
     );
 
-    explosion(20);
+    explosion(18);
+
 }
 
 
+/* =========================================
+   CERRAR CARTA
+========================================= */
+
 function cerrarCarta(){
 
-    document
-        .getElementById("modalCarta")
-        .classList.remove("activo");
+    const modal =
+        document.getElementById(
+            "modalCarta"
+        );
+
+    modal.classList.remove(
+        "activo"
+    );
 
     document.body.classList.remove(
         "bloqueado"
     );
+
 }
 
+
+/* =========================================
+   CERRAR CARTA AL TOCAR FUERA
+========================================= */
 
 document
 .getElementById("modalCarta")
@@ -183,34 +285,61 @@ document
     function(event){
 
         if(event.target === this){
+
             cerrarCarta();
+
         }
 
     }
 );
 
 
-/* ======================================
-   PARTÍCULA
-====================================== */
+/* =========================================
+   CERRAR CARTA CON ESC
+========================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            cerrarCarta();
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   CREAR PARTÍCULA
+========================================= */
 
 function crearParticula(
     emoji = null
 ){
 
     const elemento =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     elemento.className =
         "particula";
 
+
     const opciones = [
+
+        "❤️",
         "💛",
         "💕",
         "💖",
         "🌻",
         "✨"
+
     ];
+
 
     elemento.innerHTML =
         emoji ||
@@ -221,38 +350,54 @@ function crearParticula(
             )
         ];
 
+
     elemento.style.left =
-        Math.random()*100 + "vw";
+        Math.random()
+        * 100
+        + "vw";
+
 
     elemento.style.fontSize =
-        (18 + Math.random()*25)
+        (
+            17 +
+            Math.random()
+            * 27
+        )
         + "px";
 
+
     elemento.style.animationDuration =
-        (4 + Math.random()*4)
+        (
+            4 +
+            Math.random()
+            * 4
+        )
         + "s";
+
 
     document.body.appendChild(
         elemento
     );
+
 
     setTimeout(() => {
 
         elemento.remove();
 
     },8500);
+
 }
 
 
-/* ======================================
-   EXPLOSIÓN
-====================================== */
+/* =========================================
+   EXPLOSIÓN DE CORAZONES
+========================================= */
 
 function explosion(cantidad){
 
     for(
-        let i=0;
-        i<cantidad;
+        let i = 0;
+        i < cantidad;
         i++
     ){
 
@@ -260,27 +405,33 @@ function explosion(cantidad){
 
             crearParticula();
 
-        },i*60);
+        },i * 55);
+
     }
+
 }
 
 
-/* ======================================
-   LLUVIA FLORES
-====================================== */
+/* =========================================
+   LLUVIA DE FLORES
+========================================= */
 
 function lluviaFlores(){
 
     const flores = [
+
         "🌻",
         "🌼",
         "💛",
+        "❤️",
         "✨"
+
     ];
 
+
     for(
-        let i=0;
-        i<35;
+        let i = 0;
+        i < 38;
         i++
     ){
 
@@ -291,8 +442,10 @@ function lluviaFlores(){
                     "div"
                 );
 
+
             flor.className =
                 "flor-caida";
+
 
             flor.innerHTML =
                 flores[
@@ -302,22 +455,35 @@ function lluviaFlores(){
                     )
                 ];
 
+
             flor.style.left =
-                Math.random()*100
+                Math.random()
+                * 100
                 + "vw";
 
+
             flor.style.fontSize =
-                (20 +
-                Math.random()*35)
+                (
+                    20 +
+                    Math.random()
+                    * 35
+                )
                 + "px";
 
+
             flor.style.animationDuration =
-                (4 +
-                Math.random()*5)
+                (
+                    4 +
+                    Math.random()
+                    * 5
+                )
                 + "s";
 
-            document.body
-                .appendChild(flor);
+
+            document.body.appendChild(
+                flor
+            );
+
 
             setTimeout(() => {
 
@@ -325,16 +491,26 @@ function lluviaFlores(){
 
             },9500);
 
-        },i*80);
+
+        },i * 75);
+
     }
+
 }
 
 
-/* ======================================
+/* =========================================
    GRAN FINAL
-====================================== */
+========================================= */
 
 function granFinal(){
+
+    if(finalEjecutado){
+        return;
+    }
+
+    finalEjecutado = true;
+
 
     const normal =
         document.getElementById(
@@ -346,26 +522,32 @@ function granFinal(){
             "escenaFinal"
         );
 
+
     normal.style.display =
         "none";
+
 
     escena.classList.add(
         "activa"
     );
 
+
     explosion(45);
+
 
     escribirNombre();
 
+
     setTimeout(() => {
 
-        document
-            .getElementById(
+        const corazon =
+            document.getElementById(
                 "corazonFlores"
-            )
-            .classList.add(
-                "mostrar"
             );
+
+        corazon.classList.add(
+            "mostrar"
+        );
 
         lluviaFlores();
 
@@ -374,85 +556,120 @@ function granFinal(){
 
     setTimeout(() => {
 
-        document
-            .getElementById(
+        const texto =
+            document.getElementById(
                 "textoFinal"
-            )
-            .classList.add(
-                "mostrar"
             );
 
+        texto.classList.add(
+            "mostrar"
+        );
+
     },5000);
+
+
+    setTimeout(() => {
+
+        explosion(30);
+
+    },7000);
+
 }
 
 
-/* ======================================
-   NOMBRE LETRA POR LETRA
-====================================== */
+/* =========================================
+   ESCRIBIR ROSALINDA LETRA POR LETRA
+========================================= */
 
 function escribirNombre(){
 
     const nombre =
         "ROSALINDA";
 
+
     const contenedor =
         document.getElementById(
             "nombreFinal"
         );
 
+
     contenedor.innerHTML = "";
+
 
     nombre
     .split("")
     .forEach(
-        (letra,i) => {
+        (letra,indice) => {
 
             const span =
                 document.createElement(
                     "span"
                 );
 
+
             span.innerHTML =
                 letra;
+
 
             span.className =
                 "letra-final";
 
+
             span.style.animationDelay =
-                (i*.25)
+                (
+                    indice
+                    * .25
+                )
                 + "s";
 
-            contenedor
-                .appendChild(span);
+
+            contenedor.appendChild(
+                span
+            );
+
         }
     );
+
 }
 
 
-/* ======================================
+/* =========================================
    CORAZONES AUTOMÁTICOS
-====================================== */
+========================================= */
 
 setInterval(() => {
 
     if(
-        Math.random() > .55
+        Math.random()
+        > .58
     ){
 
+        const opciones = [
+            "❤️",
+            "💛",
+            "🌻"
+        ];
+
+
         crearParticula(
-            Math.random() > .5
-            ? "💛"
-            : "🌻"
+
+            opciones[
+                Math.floor(
+                    Math.random()
+                    * opciones.length
+                )
+            ]
+
         );
 
     }
 
-},1800);
+},1900);
 
 
-/* ======================================
-   CLICK CON DESTELLO
-====================================== */
+/* =========================================
+   EFECTO AL HACER CLICK
+========================================= */
 
 document.addEventListener(
     "click",
@@ -463,49 +680,143 @@ document.addEventListener(
                 "div"
             );
 
-        brillo.innerHTML =
-            Math.random() > .5
-            ? "✨"
-            : "💛";
 
-        brillo.style.position =
-            "fixed";
+        brillo.className =
+            "destello-click";
+
+
+        const efectos = [
+            "✨",
+            "💛",
+            "❤️"
+        ];
+
+
+        brillo.innerHTML =
+            efectos[
+                Math.floor(
+                    Math.random()
+                    * efectos.length
+                )
+            ];
+
 
         brillo.style.left =
-            event.clientX + "px";
+            event.clientX
+            + "px";
+
 
         brillo.style.top =
-            event.clientY + "px";
+            event.clientY
+            + "px";
 
-        brillo.style.zIndex =
-            "99999";
 
-        brillo.style.pointerEvents =
-            "none";
+        document.body.appendChild(
+            brillo
+        );
 
-        brillo.style.fontSize =
-            "18px";
-
-        brillo.style.transition =
-            "1s ease";
-
-        document.body
-            .appendChild(brillo);
 
         requestAnimationFrame(() => {
 
             brillo.style.transform =
-                "translateY(-60px) scale(1.8)";
+                "translateY(-65px) scale(1.8)";
 
             brillo.style.opacity =
                 "0";
 
         });
 
+
         setTimeout(() => {
 
             brillo.remove();
 
         },1000);
+
+    }
+);
+
+
+/* =========================================
+   ANIMACIÓN AL HACER SCROLL
+========================================= */
+
+const observador =
+    new IntersectionObserver(
+
+        function(entradas){
+
+            entradas.forEach(
+                function(entrada){
+
+                    if(
+                        entrada.isIntersecting
+                    ){
+
+                        entrada.target
+                            .classList
+                            .add(
+                                "visible"
+                            );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold:0.15
+        }
+
+    );
+
+
+document
+.querySelectorAll(
+    ".aparecer-scroll"
+)
+.forEach(
+    function(elemento){
+
+        observador.observe(
+            elemento
+        );
+
+    }
+);
+
+
+/* =========================================
+   DETALLE EXTRA:
+   FLORES AL TOCAR DOS VECES
+========================================= */
+
+let ultimoClick = 0;
+
+
+document.addEventListener(
+    "click",
+    function(){
+
+        const ahora =
+            Date.now();
+
+
+        if(
+            ahora -
+            ultimoClick
+            < 350
+        ){
+
+            explosion(12);
+
+        }
+
+
+        ultimoClick =
+            ahora;
+
     }
 );
